@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Academic homepage of Mohamed Siala, Associate Professor at INSA Toulouse and LAAS-CNRS.">
+    <meta name="theme-color" content="#ffffff">
+    <title>Software — Mohamed Siala</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <script>(function(){try{var d=document.documentElement.dataset;var t=localStorage.getItem("ms-theme");var s=localStorage.getItem("ms-text-style");var b=localStorage.getItem("ms-background");var p=localStorage.getItem("ms-preset")||"newsprint";if(t)d.theme=t;if(s)d.textStyle=s;if(b)d.background=b;if(p!=="classic")d.preset=p;}catch(e){}})();</script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="site.js" defer></script>
+  </head>
+  <body>
+
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="Mohamed Siala, home">
+          <span class="brand-mark" aria-hidden="true">𝄢</span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="publications.html">Publications</a>
+          <a href="teaching.html">Teaching</a>
+          <a href="talks.html">Selected Talks</a>
+          <a href="students.html">Students</a>
+          <a href="software.html" aria-current="page">Software</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <label class="header-theme">
+          <span class="header-theme-label">Theme</span>
+          <select id="preset-select" aria-label="Site theme">
+            <option value="newsprint">Newspaper</option>
+            <option value="classic">Classic</option>
+            <option value="dark">Dark</option>
+            <option value="cheerful">Cheerful</option>
+            <option value="bright">Bright</option>
+          </select>
+        </label>
+        <a class="header-cta" href="CV.pdf" target="_blank">
+          CV <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </header>
+    <main id="main-content" class="legacy-main">
+      <section class="page-intro section-shell">
+        <p class="eyebrow">Open source</p>
+        <h1>Software</h1>
+        <span class="intro-node" aria-hidden="true"></span>
+      </section>
+      <div class="section-shell legacy-shell">
+        <div class="legacy-content software-content">
+<div class="panel-body">
+
+         <div class="panel panel-info">
+            <!-- <div class="well"> -->
+            <div class="panel-heading">
+               <b> Hybrid-Mistral</b>
+            </div>
+
+
+            <div class="well">
+               <a href="https://github.com/siala/Hybrid-Mistral">Hybrid-Mistral</a>
+               is a hybrid CP/SAT solver designed to tackle Disjunctive Scheduling Problems.
+               The SAT engine implements standard
+               Conflict-Driven Clause Learning (CDCL) techniques
+               such as Adaptive Branching (VSIDS),
+               Two-Watched Literals, and 1-UIP Cuts.
+               The latter features are built on top of <a
+                  href="https://github.com/ehebrard/Mistral-2.0">Mistral-2.0</a>.
+               Propagators are augmented with explanation routines that are invoked only during conflict analysis.
+            </div>
+         </div>
+
+         <div class="panel panel-info">
+            <!-- <div class="well"> -->
+
+            <div class="panel-heading">
+               <b> Mistral-2.0 </b>
+
+            </div>
+
+            <div class="well">
+
+               <p>
+                  During my PhD, I contributed to the development of the
+                  <strong>constraint programming solver Mistral-2.0</strong>, an open-source C++ library released under
+                  the GNU General
+                  Public License and available on
+                  <a href="https://github.com/ehebrard/Mistral-2.0" target="_blank" rel="noreferrer">GitHub</a>.
+                  Mistral implements a broad range of arithmetic and logical primitive constraints, as well as several
+                  global
+                  constraints such as
+                  <em>AllDifferent</em>, <em>Linear Equalities</em>, and <em>Element</em>.
+                  It also provides standard search strategies and heuristics, including <em>Restarts</em>, <em>Weighted
+                     Degree</em>,
+                  and <em>Activity-Based Search</em>.
+                  The solver won multiple awards in the
+                  <a href="https://xcsp.org/competitions/"> XCSP</a>
+                  constraint programming competition
+                  and the <a href="https://www.minizinc.org/challenge/" target="_blank" rel="noreferrer">
+                     minizinc challenge </a>
+               </p>
+
+
+
+            </div>
+         </div>
+
+      </div>
+
+
+      <div class="panel-body">
+         <div class="panel panel-phd">
+            <div class="panel-heading">
+               <h3 class="panel-title">Tools developed by my students</h3>
+            </div>
+            <div class="panel-body">
+               <ul>
+
+
+                  <div class="row">
+                     <div class="column-news-left">
+                        <i> <span> </span></i>
+                     </div>
+                     <div class="column-news-right">
+
+                        <strong>Faircorels</strong> and
+                        <strong>FairCORELSV2</strong>:
+                        Python libraries developed mainly by my PhD student
+                        Julien Ferry
+                        for learning fair and interpretable models.
+                        The source code is available
+                        <a href="https://github.com/ferryjul/fairCORELS" target="_blank" rel="noreferrer">
+                           here
+                        </a>
+                        and
+                        <a href="https://github.com/ferryjul/fairCORELSV2" target="_blank" rel="noreferrer">
+                           here
+                        </a>
+
+                     </div>
+                  </div>
+
+                  <br>
+
+
+                  <div class="row">
+                     <div class="column-news-left">
+                        <i> <span> </span></i>
+                     </div>
+                     <div class="column-news-right">
+
+                        <strong>BDDEncoding</strong>:
+
+                        A Python library developed by my PhD student
+                        Hao Hu
+                        for learning binary decision diagrams for classification.
+                        The source code is available
+                        <a href="https://gitlab.laas.fr/roc/hao-hu/bddencoding" target="_blank" rel="noreferrer">
+                           here
+                        </a>.
+                     </div>
+                  </div>
+
+                  <br>
+
+
+                  <div class="row">
+                     <div class="column-news-left">
+                        <i> <span> </span></i>
+                     </div>
+                     <div class="column-news-right">
+
+                        <strong>MaxSAT Decision Trees</strong>:
+
+                        A Python library developed by my PhD student
+                        Hao Hu
+                        for learning optimal decision trees
+                        for classification.
+                        The source code is available
+                        <a href="https://gitlab.laas.fr/roc/hao-hu/maxsat-decision-trees" target="_blank" rel="noreferrer">
+                           here
+                        </a>.
+                     </div>
+                  </div>
+
+            </div>
+         </div>
+      </div>
+
+
+
+
+
+      
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner section-shell">
+        <details class="appearance-panel">
+          <summary class="appearance-summary">Customize appearance</summary>
+          <div class="appearance-body">
+            <p class="appearance-copy">Choose a color palette, paper background, and reading style. Your choices are saved in this browser.</p>
+            <div class="appearance-controls">
+              <label class="appearance-field">
+                <span>Colors</span>
+                <span class="select-with-swatch">
+                  <span class="theme-swatch" aria-hidden="true"></span>
+                  <select id="theme-select" aria-label="Website color theme">
+                    <option value="academic">Academic Blue</option>
+                    <option value="oxford">Oxford</option>
+                    <option value="forest">Forest</option>
+                    <option value="graphite">Graphite</option>
+                    <option value="aubergine">Aubergine</option>
+                    <option value="terracotta">Terracotta</option>
+                    <option value="nordic">Nordic</option>
+                    <option value="teal">Deep Teal</option>
+                    <option value="burgundy">Burgundy</option>
+                    <option value="sepia">Sepia</option>
+                  </select>
+                </span>
+              </label>
+              <label class="appearance-field">
+                <span>Background</span>
+                <select id="background-select" aria-label="Website background color">
+                  <option value="paper">Paper White</option>
+                  <option value="ivory">Warm Ivory</option>
+                  <option value="gray">Soft Gray</option>
+                  <option value="mist">Cool Mist</option>
+                  <option value="sage">Pale Sage</option>
+                  <option value="sand">Light Sand</option>
+                  <option value="rose">Soft Rose</option>
+                  <option value="lavender">Lavender Mist</option>
+                </select>
+              </label>
+              <label class="appearance-field">
+                <span>Text style</span>
+                <select id="text-style-select" aria-label="Website text formatting">
+                  <option value="balanced">Balanced</option>
+                  <option value="classic">Classic Serif</option>
+                  <option value="modern">Modern Sans</option>
+                  <option value="scholarly">Scholarly</option>
+                  <option value="compact">Compact</option>
+                  <option value="spacious">Spacious</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </details>
+        <div class="footer-identity">
+          <p class="footer-name">Mohamed Siala</p>
+          <p>INSA Toulouse · LAAS-CNRS</p>
+        </div>
+        <div class="footer-links">
+          <a href="http://scholar.google.fr/citations?user=zuidb9EAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
+          <a href="https://dblp.org/pid/39/2558-2.html" target="_blank" rel="noreferrer">DBLP</a>
+          <a href="https://www.linkedin.com/in/msiala/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/siala" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://orcid.org/0000-0001-9503-4091" target="_blank" rel="noreferrer">ORCID</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

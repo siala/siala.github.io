@@ -1,0 +1,1801 @@
+/* Self-hosted fonts (SIL Open Font License). Static latin instances:
+   Inter 400/500/600/700 + 400/700 italic, Merriweather 400/700 for headings.
+   No external requests — the site loads no third-party assets. */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/inter-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/inter-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/inter-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/inter-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/inter-400-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/inter-700-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/merriweather-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/merriweather-700-normal.woff2') format('woff2');
+}
+
+:root {
+  --white: #ffffff;
+  --text: #3d4144;
+  --text-soft: #646769;
+  --blue: #144273;
+  --blue-dark: #0f335a;
+  --link: #2f7d95;
+  --link-hover: #235e70;
+  --line: #f2f3f3;
+  --line-strong: #e2e4e5;
+  --accent: #c2c75a;
+  --page-bg: #ffffff;
+  --body-font: Inter, system-ui, sans-serif;
+  --heading-font: Merriweather, Georgia, serif;
+  --body-size: 15px;
+  --body-leading: 1.6;
+  --content-width: 820px;
+  --shell: min(var(--content-width), 100%);
+  --card-radius: 10px;
+  --card-border: 1px solid var(--line-strong);
+  --card-shadow: 0 1px 2px rgba(15, 15, 20, 0.03), 0 10px 24px -18px rgba(15, 15, 20, 0.18);
+  /* The wordmark stays black across all ten colour palettes; only a preset
+     built on a dark surface may lighten it, or it would be unreadable. */
+  --brand-ink: #111;
+  /* Primary heading colour. Kept off the palette so colour themes never
+     tint headings, but presets on a dark surface must override it. */
+  --ink: #111;
+}
+
+html[data-theme="oxford"] {
+  --text: #34363a;
+  --text-soft: #66656a;
+  --blue: #23395b;
+  --blue-dark: #182743;
+  --link: #8b2e4f;
+  --link-hover: #651e39;
+  --accent: #b59b54;
+  --line: #edebe6;
+  --line-strong: #dfdcd4;
+}
+
+html[data-theme="forest"] {
+  --blue: #234f3f;
+  --blue-dark: #17382d;
+  --link: #397a62;
+  --link-hover: #275747;
+  --accent: #b8a856;
+  --line: #e7eee5;
+  --line-strong: #d7e2d3;
+}
+
+html[data-theme="graphite"] {
+  --text: #343638;
+  --text-soft: #666a6d;
+  --blue: #25282b;
+  --blue-dark: #111315;
+  --link: #555b61;
+  --link-hover: #1f2225;
+  --accent: #9aa0a6;
+  --line: #ececec;
+  --line-strong: #d9d9d9;
+}
+
+html[data-theme="aubergine"] {
+  --blue: #4e2f5f;
+  --blue-dark: #351f42;
+  --link: #7d4f7f;
+  --link-hover: #5d365f;
+  --accent: #c4a35a;
+  --line: #eee7ef;
+  --line-strong: #dfd4e1;
+}
+
+html[data-theme="terracotta"] {
+  --blue: #7c3f2c;
+  --blue-dark: #572b1e;
+  --link: #a0543e;
+  --link-hover: #743727;
+  --accent: #c89b63;
+  --line: #f0e7df;
+  --line-strong: #e2d4c7;
+}
+
+html[data-theme="nordic"] {
+  --blue: #2f5367;
+  --blue-dark: #1e3948;
+  --link: #4e7d91;
+  --link-hover: #315d70;
+  --accent: #a9bdc5;
+  --line: #e5edef;
+  --line-strong: #d3e0e4;
+}
+
+html[data-theme="teal"] {
+  --blue: #155d61;
+  --blue-dark: #0e4144;
+  --link: #278085;
+  --link-hover: #195d61;
+  --accent: #c0a85b;
+  --line: #e3efec;
+  --line-strong: #cfe0dc;
+}
+
+html[data-theme="burgundy"] {
+  --blue: #722f37;
+  --blue-dark: #4f2026;
+  --link: #9a4753;
+  --link-hover: #6d2d36;
+  --accent: #bba15a;
+  --line: #f0e4e6;
+  --line-strong: #dfcfd2;
+}
+
+html[data-theme="sepia"] {
+  --text: #443d35;
+  --text-soft: #74695d;
+  --blue: #654c35;
+  --blue-dark: #493625;
+  --link: #8b6747;
+  --link-hover: #64472f;
+  --accent: #b99b66;
+  --line: #eee6d8;
+  --line-strong: #dfd3bf;
+}
+
+html[data-background="ivory"] {
+  --page-bg: #fbfaf3;
+}
+
+html[data-background="gray"] {
+  --page-bg: #f5f6f6;
+}
+
+html[data-background="mist"] {
+  --page-bg: #f3f7f8;
+}
+
+html[data-background="sage"] {
+  --page-bg: #f5f8f2;
+}
+
+html[data-background="sand"] {
+  --page-bg: #faf6ee;
+}
+
+html[data-background="rose"] {
+  --page-bg: #fbf5f5;
+}
+
+html[data-background="lavender"] {
+  --page-bg: #f7f5fa;
+}
+
+html[data-text-style="classic"] {
+  --body-font: Georgia, "Times New Roman", serif;
+  --heading-font: Georgia, "Times New Roman", serif;
+  --body-size: 15px;
+  --body-leading: 1.62;
+}
+
+html[data-text-style="modern"] {
+  --body-font: Arial, Helvetica, sans-serif;
+  --heading-font: Arial, Helvetica, sans-serif;
+  --body-size: 15px;
+  --body-leading: 1.52;
+}
+
+html[data-text-style="scholarly"] {
+  --body-font: Palatino, "Palatino Linotype", "Book Antiqua", serif;
+  --heading-font: Georgia, "Times New Roman", serif;
+  --body-size: 15.5px;
+  --body-leading: 1.65;
+}
+
+html[data-text-style="compact"] {
+  --body-font: Inter, system-ui, sans-serif;
+  --heading-font: Merriweather, Georgia, serif;
+  --body-size: 14px;
+  --body-leading: 1.42;
+  --content-width: 860px;
+}
+
+html[data-text-style="spacious"] {
+  --body-font: Georgia, "Times New Roman", serif;
+  --heading-font: Merriweather, Georgia, serif;
+  --body-size: 16px;
+  --body-leading: 1.72;
+  --content-width: 780px;
+}
+
+/* ==========================================================================
+   Theme presets (header "Theme" menu).
+
+   These are whole looks, not palettes: each one rewrites surface, type and
+   card treatment together. They are declared after the palette, background and
+   text-style blocks so that, at equal specificity, source order lets a preset
+   win. "Classic" declares nothing, which leaves the footer's Customize
+   appearance controls fully in charge — that panel is unchanged.
+
+   Note --white carries the card surface AND the contrast colour used on top of
+   --blue. On dark presets both invert together, so it stays legible.
+   ========================================================================== */
+
+html[data-preset="dark"] {
+  --page-bg: #0f1216;
+  --white: #171b21;
+  --text: #d7dbe0;
+  --text-soft: #98a0aa;
+  --blue: #8ab8e8;
+  --blue-dark: #b0d2f5;
+  --link: #6fc3d6;
+  --link-hover: #9adbe9;
+  --line: #212730;
+  --line-strong: #2d3440;
+  --accent: #c2c75a;
+  --brand-ink: #eef1f5;
+  --ink: #f2f5f9;
+  --card-shadow: none;
+}
+
+/* Cheerful: warm cream paper, coral headings, teal links and a sunny accent.
+   The whole palette is pushed warm rather than just recoloured. */
+html[data-preset="cheerful"] {
+  --page-bg: #fff6ec;
+  --white: #ffffff;
+  --text: #46372e;
+  --text-soft: #7c6a5d;
+  --blue: #b8403c;
+  --blue-dark: #8f2f2c;
+  --link: #0d7b74;
+  --link-hover: #095a55;
+  --accent: #f2a03d;
+  --line: #f6e7d8;
+  --line-strong: #e6d2bd;
+  --ink: #33251c;
+  --card-radius: 14px;
+  --card-shadow: 0 1px 2px rgba(80, 50, 20, 0.04), 0 12px 28px -20px rgba(120, 70, 20, 0.35);
+}
+
+/* Bright: stays on white, but trades the muted academic blue for a vivid one,
+   with emerald links and a coral accent. */
+html[data-preset="bright"] {
+  --page-bg: #ffffff;
+  --white: #ffffff;
+  --text: #37424f;
+  --text-soft: #6b7885;
+  --blue: #1f5fd0;
+  --blue-dark: #1547a3;
+  --link: #0b8a68;
+  --link-hover: #076a50;
+  --accent: #f25f5c;
+  --line: #eef3f8;
+  --line-strong: #dbe4ee;
+  --ink: #182430;
+  --card-radius: 14px;
+  --card-shadow: 0 1px 2px rgba(20, 40, 80, 0.04), 0 14px 30px -22px rgba(20, 50, 110, 0.4);
+}
+
+html[data-preset="newsprint"] {
+  --page-bg: #f2efe6;
+  --white: #faf8f2;
+  --text: #16150f;
+  --text-soft: #57534a;
+  --blue: #16150f;
+  --blue-dark: #000;
+  --link: #7a4a22;
+  --link-hover: #4d2d12;
+  --line: #ded8c9;
+  --line-strong: #cbc3b0;
+  --accent: #8a7a52;
+  --ink: #16150f;
+  --body-font: Georgia, "Times New Roman", serif;
+  --heading-font: Merriweather, Georgia, serif;
+  --body-size: 16px;
+  --body-leading: 1.68;
+  --content-width: 760px;
+  --card-radius: 0;
+  --card-shadow: none;
+}
+
+/* Brutalist wants hard edges everywhere, not just on cards. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--page-bg);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: var(--body-font);
+  font-size: var(--body-size);
+  line-height: var(--body-leading);
+  text-rendering: optimizeLegibility;
+}
+
+body::selection {
+  background: var(--blue);
+  color: var(--white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: var(--blue);
+  color: var(--white);
+  transform: translateY(-160%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.section-shell {
+  width: var(--shell);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--line-strong);
+  background: color-mix(in srgb, var(--page-bg) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(12px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: min(1180px, 100%);
+  min-height: 60px;
+  padding: 0 24px;
+  margin-inline: auto;
+}
+
+.brand {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 9px;
+  margin-right: 22px;
+  color: var(--blue);
+  font-family: var(--heading-font);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+/* The wordmark is fixed black in every palette, so it never picks up the
+   theme colour the reader has chosen. */
+.brand::after {
+  content: "Mohamed Siala";
+  color: var(--brand-ink);
+  font-family: var(--heading-font);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 7px;
+  /* The clef tile keeps a fixed white ground and black glyph in every palette, so
+     the mark reads the same way regardless of the theme the reader picks. */
+  background: #fff;
+  color: #111;
+  font-family: "Apple Symbols", "Noto Music", "Segoe UI Symbol", serif;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.main-nav {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.main-nav a {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 7px 11px;
+  border-radius: 6px;
+  color: var(--text-soft);
+  font-family: var(--body-font);
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.main-nav a:visited {
+  color: var(--text-soft);
+}
+
+.main-nav a:hover {
+  background: color-mix(in srgb, var(--blue) 7%, transparent);
+  color: var(--blue);
+}
+
+.main-nav a[aria-current="page"],
+.main-nav a[aria-current="page"]:visited {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.main-nav a[aria-current="page"]::after {
+  position: absolute;
+  right: 11px;
+  bottom: 1px;
+  left: 11px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  content: "";
+}
+
+/* Header theme menu. Sits between the nav and the CV button; the visible
+   "Theme" caption is hidden on narrow screens where the header already wraps. */
+.header-theme {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 7px;
+  margin-left: 10px;
+}
+
+.header-theme-label {
+  color: var(--text-soft);
+  font-family: var(--body-font);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.header-theme select {
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--text);
+  cursor: pointer;
+  font: 600 12px/1 var(--body-font);
+}
+
+.header-theme select:hover {
+  border-color: var(--blue);
+}
+
+.header-cta {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  margin-left: 12px;
+  color: var(--blue);
+  font-family: var(--body-font);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.header-cta:visited {
+  color: var(--blue);
+}
+
+.header-cta:hover {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: var(--white);
+}
+
+.legacy-main {
+  flex: 1 0 auto;
+}
+
+.page-intro {
+  padding-top: 56px;
+  padding-bottom: 26px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.intro-node {
+  display: none;
+}
+
+.page-intro .eyebrow {
+  display: block;
+  margin: 0 0 9px;
+  color: var(--text-soft);
+  font-family: var(--body-font);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.page-intro h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--heading-font);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.legacy-shell {
+  padding-top: 0;
+  padding-bottom: 88px;
+}
+
+.legacy-home .legacy-shell {
+  padding-top: 0;
+}
+
+.legacy-content {
+  color: var(--text);
+  font-size: var(--body-size);
+  line-height: var(--body-leading);
+  overflow-wrap: anywhere;
+}
+
+.legacy-content p {
+  margin: 8px 0 19px;
+}
+
+.legacy-content a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.legacy-content a:visited {
+  color: var(--link);
+}
+
+.legacy-content a:hover {
+  color: var(--link-hover);
+}
+
+.legacy-content h1,
+.legacy-content h2,
+.legacy-content h3,
+.legacy-content h4,
+.legacy-content h5,
+.legacy-content h6,
+.legacy-content .panel-heading,
+.legacy-content .panel-title {
+  color: var(--blue);
+  font-family: var(--heading-font);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.legacy-content img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.legacy-content .panel-body,
+.legacy-content .well,
+.legacy-content .panel {
+  min-width: 0;
+}
+
+.legacy-content .panel-body {
+  padding: 0;
+}
+
+.legacy-content ul {
+  margin: 0;
+}
+
+.legacy-content .panel-heading,
+.legacy-content .panel-title {
+  margin: 0;
+}
+
+.legacy-content .label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.legacy-content [hidden] {
+  display: none !important;
+}
+
+/* Home — portrait and identity share one grid; bio and links follow beneath. */
+.legacy-home .legacy-shell {
+  padding-top: 64px;
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 34px;
+  align-items: center;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.legacy-content img.home-portrait {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  /* The crisp 2px ring, kept across every theme. --ink follows the surface, so
+     it reads black on light themes and light on dark ones. */
+  box-shadow: 0 0 0 2px var(--ink), 0 18px 40px -24px rgba(15, 15, 20, 0.35);
+}
+
+.home-identity h1 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-family: var(--heading-font);
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.home-role {
+  margin: 0;
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.home-affiliation {
+  margin: 3px 0 0;
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+.home-topics {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 6px;
+  margin: 18px 0 0;
+  list-style: none;
+}
+
+.home-topics li {
+  padding: 4px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--blue) 4%, transparent);
+  color: var(--text-soft);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.home-bio p {
+  margin: 0 0 16px;
+  font-size: 15.5px;
+}
+
+.home-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 28px;
+  margin-top: 30px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.profile-links a,
+.profile-links a:visited {
+  padding: 6px 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--text-soft);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.profile-links a:hover {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: var(--white);
+}
+
+.panel-phd {
+  margin-top: 56px;
+}
+
+.panel-phd > .panel-heading {
+  padding: 0 0 12px;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  margin-bottom: 4px;
+}
+
+.panel-phd .panel-title {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--heading-font);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.panel-subtitle {
+  margin: 6px 0 0;
+  color: var(--text-soft);
+  font-family: var(--body-font);
+  font-size: 12.5px;
+  font-weight: 400;
+}
+
+/* News items arrive as nested <i>/<b>/<u> wrappers; flatten them so links read
+   as links instead of stacked bold-italic-underline. */
+.legacy-home .column-news-right i,
+.legacy-home .column-news-right em,
+.legacy-home .column-news-right b,
+.legacy-home .column-news-right strong,
+.legacy-home .column-news-right u,
+.legacy-home .column-news-right .emphasized {
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.legacy-home .column-news-right a {
+  font-style: normal;
+  font-weight: 500;
+}
+
+.panel-phd > .panel-body > ul {
+  padding: 0;
+  list-style: none;
+}
+
+.panel-phd > .panel-body > ul > div:not(.row) {
+  display: none;
+}
+
+/* The homepage news archive runs to 25 entries, so it scrolls inside a fixed
+   height rather than pushing the footer far down the page. Scoped to the home
+   page because the Software page reuses .panel-phd without a long list.
+   `overscroll-behavior: contain` stops the wheel chaining out to the document
+   once the list bottoms out. */
+.legacy-home .panel-phd > .panel-body > ul {
+  max-height: min(62vh, 620px);
+  /* The negative margin lets the scrollbar sit out in the shell gutter, so the
+     row dividers keep aligning with the heading rule above them. */
+  padding-right: 16px;
+  padding-bottom: 4px;
+  margin-right: -16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Deliberately no `scrollbar-width`/`scrollbar-color` here: setting either one
+   makes Chrome ignore the ::-webkit-scrollbar rules below and fall back to the
+   macOS overlay scrollbar, which hides itself whenever the reader stops moving.
+   Firefox has no ::-webkit-scrollbar, so it gets the standard properties. */
+@supports not selector(::-webkit-scrollbar) {
+  .legacy-home .panel-phd > .panel-body > ul {
+    scrollbar-color: color-mix(in srgb, var(--text-soft) 55%, transparent) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+/* Styling the scrollbar opts Chrome out of the macOS overlay behaviour, so the
+   track stays visible instead of fading away whenever the reader stops moving. */
+.legacy-home .panel-phd > .panel-body > ul::-webkit-scrollbar {
+  width: 9px;
+}
+
+.legacy-home .panel-phd > .panel-body > ul::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--text-soft) 9%, transparent);
+}
+
+.legacy-home .panel-phd > .panel-body > ul::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--text-soft) 65%, transparent);
+  background-clip: content-box;
+}
+
+.legacy-home .panel-phd > .panel-body > ul::-webkit-scrollbar-thumb:hover {
+  background: var(--text-soft);
+  background-clip: content-box;
+}
+
+/* The fade sits on the non-scrolling parent so it stays pinned to the bottom
+   edge, and stops short of the scrollbar gutter so the track is never dimmed. */
+.legacy-home .panel-phd > .panel-body {
+  position: relative;
+}
+
+.legacy-home .panel-phd > .panel-body::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 78px;
+  background: linear-gradient(to bottom, transparent, var(--page-bg) 78%);
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.legacy-home .panel-phd > .panel-body[data-scroll-end="true"]::after {
+  opacity: 0;
+}
+
+/* Keyboard users focus the region to scroll it with the arrow keys. */
+.legacy-home .panel-phd > .panel-body > ul:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.panel-phd .row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.panel-phd .row:last-of-type {
+  border-bottom: 0;
+}
+
+.panel-phd .column-news-left,
+.panel-phd .column-news-right {
+  float: none;
+  width: auto;
+}
+
+.panel-phd .column-news-left {
+  color: var(--text-soft);
+  font-size: 11.5px;
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding-top: 2px;
+  text-transform: uppercase;
+}
+
+.panel-phd .column-news-left i {
+  font-style: normal;
+}
+
+/* Publications — complete source content in the reference site's compact cards. */
+.publications-content > .panel-body > .well {
+  padding: 0;
+  margin: 0 0 24px;
+  background: transparent;
+}
+
+/* The thesis is a standalone publication section, so it follows the same
+   layout rhythm as the year sections instead of the legacy alert styling. */
+.publications-content > .panel-body > .alert-info {
+  padding: 0;
+  margin: 0 0 24px;
+  background: transparent;
+}
+
+.publications-content #filter-section {
+  padding: 18px 20px;
+  margin-bottom: 34px;
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  background: color-mix(in srgb, var(--blue) 3%, var(--white));
+}
+
+.publications-content #filter-section h4 {
+  margin: 0 0 12px;
+  color: var(--text-soft);
+  font-family: var(--body-font);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+#tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+#tag-filters .btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 11px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--text-soft);
+  cursor: pointer;
+  font-size: 11.5px;
+  font-weight: 500;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+#tag-filters .btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+#tag-filters .btn.active {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: var(--white);
+}
+
+#tag-filters input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.publications-content .checkbox {
+  margin-top: 12px;
+  font-size: 11px;
+}
+
+.publications-content .checkbox input {
+  margin-right: 6px;
+  accent-color: var(--blue);
+}
+
+.publications-content .well:not(#filter-section) > h4:first-child,
+.publications-content .alert-info > h4:first-child {
+  margin: 40px 0 14px;
+  text-align: left;
+}
+
+.publications-content > .panel-body > .well:first-of-type + .well > h4:first-child {
+  margin-top: 0;
+}
+
+.publications-content .well > br {
+  display: none;
+}
+
+.publications-content .pub {
+  padding: 18px 20px;
+  margin: 12px 0;
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  background: var(--white);
+  box-shadow: var(--card-shadow);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.publications-content .pub:hover {
+  border-color: color-mix(in srgb, var(--blue) 30%, var(--line-strong));
+  box-shadow: 0 1px 2px rgba(15, 15, 20, 0.04), 0 14px 30px -20px rgba(15, 15, 20, 0.3);
+}
+
+.publications-content .pub .row {
+  display: grid;
+  grid-template-columns: 125px minmax(0, 1fr);
+  gap: 20px;
+}
+
+/* The thesis has no venue column; do not leave an empty 125px grid track. */
+.publications-content .pub .row > .column-right:only-child {
+  grid-column: 1 / -1;
+}
+
+.publications-content .column-left,
+.publications-content .column-right {
+  float: none;
+  width: auto;
+}
+
+.publications-content .column-left h5 {
+  margin: 3px 0 0;
+  color: var(--text-soft);
+  font-family: var(--body-font);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.publications-content .column-left h5 a,
+.publications-content .column-left h5 a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.publications-content .column-left h5 a:hover {
+  color: var(--blue);
+}
+
+.publications-content .column-right > em,
+.publications-content .column-right > i {
+  display: block;
+  margin-top: 3px;
+}
+
+.publications-content .column-right > h4 {
+  margin: 0 0 6px;
+  font-family: var(--body-font);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.publications-content em {
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.publications-content [class*="label-siala"],
+.teaching-content [class*="label-siala"] {
+  --chip: var(--text-soft);
+  gap: 4px;
+  padding: 4px 10px;
+  margin-top: 10px;
+  margin-right: 6px;
+  border: 1px solid color-mix(in srgb, var(--chip) 30%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--chip) 8%, var(--white));
+  color: var(--chip);
+  font-family: var(--body-font);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.3;
+  white-space: nowrap;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.publications-content [class*="label-siala"]:hover,
+.teaching-content [class*="label-siala"]:hover {
+  border-color: color-mix(in srgb, var(--chip) 55%, transparent);
+  background: color-mix(in srgb, var(--chip) 15%, var(--white));
+}
+
+.publications-content .label-sialapublished { --chip: #216e4e; }
+.publications-content .label-sialapreprint,
+.teaching-content .label-sialapreprint { --chip: #285f9e; }
+.publications-content .label-sialasourcecode { --chip: #6b4a8e; }
+.publications-content .label-sialadetailed { --chip: #925625; }
+.publications-content .label-sialavideo { --chip: #a13a5e; }
+.publications-content .label-sialafile { --chip: #4c5b66; }
+.publications-content .label-sialapypi { --chip: #0f6b75; }
+
+/* Those badge hues are picked for a white card. On Dark the card goes dark
+   underneath them and the same colours drop to ~2.3:1, well under the 4.5:1 AA
+   floor, so each one is lifted to a lighter tint of itself. */
+html[data-preset="dark"] .publications-content .label-sialapublished { --chip: #5fd39a; }
+html[data-preset="dark"] .publications-content .label-sialapreprint,
+html[data-preset="dark"] .teaching-content .label-sialapreprint { --chip: #85b8f2; }
+html[data-preset="dark"] .publications-content .label-sialasourcecode { --chip: #bb98e4; }
+html[data-preset="dark"] .publications-content .label-sialadetailed { --chip: #e0a468; }
+html[data-preset="dark"] .publications-content .label-sialavideo { --chip: #f288ac; }
+html[data-preset="dark"] .publications-content .label-sialafile { --chip: #adc0cc; }
+html[data-preset="dark"] .publications-content .label-sialapypi { --chip: #5fd0dc; }
+
+/* Teaching chips are plain wayfinding links rather than status badges, so they
+   stay at normal weight. */
+.teaching-content [class*="label-siala"] {
+  font-weight: 400;
+}
+
+.publications-content [class*="label-siala"] a,
+.publications-content [class*="label-siala"] a:visited,
+.publications-content [class*="label-siala"] a:hover,
+.teaching-content [class*="label-siala"] a,
+.teaching-content [class*="label-siala"] a:visited,
+.teaching-content [class*="label-siala"] a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.publications-content .tag-badge {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-soft);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.publications-content .tag-badge + .tag-badge::before {
+  content: " · ";
+}
+
+/* Teaching, supervision, software and talks use the same quiet card language. */
+.teaching-content,
+.software-content,
+.teaching-content > .panel-body,
+.students-content > .panel,
+.software-content > .panel-body {
+  display: grid;
+  gap: 16px;
+}
+
+.teaching-content ul,
+.software-content .panel-phd ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.teaching-content .well,
+.students-content .well,
+.software-content .panel-info,
+.software-content .panel-phd {
+  padding: 18px 20px;
+  margin: 0;
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  background: var(--white);
+  box-shadow: var(--card-shadow);
+}
+
+.teaching-content .panel-title,
+.students-content > .panel > .panel-heading,
+.software-content .panel-info > .panel-heading,
+.software-content .panel-phd > .panel-heading {
+  margin-bottom: 9px;
+  font-size: 16px;
+}
+
+/* Course titles stay neutral; theme palettes are reserved for links and accents. */
+.teaching-content .panel-heading,
+.teaching-content .panel-title,
+.teaching-content .panel-title a,
+.teaching-content .panel-title a:visited,
+.teaching-content .panel-title a:hover {
+  color: var(--ink);
+}
+
+.teaching-content ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.students-content > .panel > .panel-heading {
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  font-size: 19px;
+}
+
+.students-content center {
+  display: block;
+  padding-top: 7px;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+.software-content > .panel-body + .panel-body {
+  margin-top: 28px;
+}
+
+.software-content .panel-info > .well {
+  padding: 0;
+  border: 0;
+}
+
+.software-content .panel-phd {
+  margin-top: 0;
+}
+
+.software-content .panel-phd > .panel-heading {
+  padding-bottom: 10px;
+}
+
+.software-content .panel-phd .panel-title {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+.software-content .panel-phd .row {
+  display: block;
+  padding: 12px 0;
+}
+
+.software-content .panel-phd .column-news-left {
+  display: none;
+}
+
+.talks-content {
+  display: grid;
+  gap: 16px;
+}
+
+.talks-content .alert {
+  padding: 18px 20px;
+  border: var(--card-border);
+  border-left: 3px solid color-mix(in srgb, var(--accent) 70%, var(--line-strong));
+  border-radius: var(--card-radius);
+  background: var(--white);
+  box-shadow: var(--card-shadow);
+}
+
+.talks-content .alert p {
+  margin: 0;
+}
+
+/* One typographic hierarchy across every academic section page. */
+.publications-content,
+.teaching-content,
+.talks-content,
+.students-content,
+.software-content,
+.contact-content {
+  font-family: var(--body-font);
+  font-size: var(--body-size);
+  line-height: var(--body-leading);
+}
+
+.publications-content .pub,
+.teaching-content .well,
+.talks-content .alert,
+.students-content .well,
+.software-content .panel-info,
+.software-content .panel-phd,
+.contact-content .contact-card {
+  color: var(--text);
+  font-family: var(--body-font);
+  font-size: var(--body-size);
+  line-height: var(--body-leading);
+}
+
+.publications-content .column-right > h4,
+.teaching-content .panel-title,
+.software-content .panel-info > .panel-heading,
+.contact-content .contact-card h2 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-family: var(--heading-font);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Course titles run at regular weight. This needs the self-hosted Merriweather
+   400 face: with only the 700 face available, a 400 request falls through the
+   stack to Georgia and silently changes typeface rather than weight. */
+.teaching-content .panel-title,
+.teaching-content .panel-title a,
+.teaching-content .panel-title a:visited,
+.teaching-content .panel-title a:hover {
+  font-weight: 400;
+}
+
+.publications-content .well:not(#filter-section) > h4:first-child,
+.publications-content .alert-info > h4:first-child,
+.students-content > .panel > .panel-heading,
+.software-content .panel-phd > .panel-heading {
+  padding-bottom: 10px;
+  margin: 0 0 14px;
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--ink);
+  font-family: var(--heading-font);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.teaching-content .panel-heading > h4,
+.teaching-content li > h4 {
+  margin: 8px 0 0;
+  color: var(--text);
+  font: inherit;
+  line-height: inherit;
+}
+
+.talks-content .alert p,
+.students-content .well p,
+.software-content .well p {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.students-content center {
+  font-family: var(--body-font);
+  font-size: var(--body-size);
+  line-height: var(--body-leading);
+}
+
+.publications-content .column-left h5 {
+  font-family: var(--body-font);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.publications-content em {
+  font-family: var(--body-font);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.contact-content-source {
+  display: grid;
+  /* Both cards now carry comparable weight, so they share the row evenly rather
+     than keeping the old wide-primary / narrow-aside split. */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.contact-card {
+  padding: 22px 24px;
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  background: var(--white);
+  box-shadow: var(--card-shadow);
+}
+
+.contact-card h2 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-family: var(--heading-font);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.contact-card p {
+  margin: 0 0 10px;
+  font-family: var(--body-font);
+  line-height: inherit;
+}
+
+.contact-intro {
+  color: var(--text-soft);
+  font-family: var(--body-font);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.contact-submit {
+  width: fit-content;
+  padding: 9px 14px;
+  border: 1px solid var(--blue-dark);
+  border-radius: 5px;
+  background: var(--blue);
+  color: var(--white);
+  cursor: pointer;
+  font: 700 12px/1.2 var(--body-font);
+}
+
+.contact-submit:hover {
+  background: var(--blue-dark);
+}
+
+/* The same button treatment on an anchor: it has to out-rank `.legacy-content a`,
+   which would otherwise repaint it as an underlined body link. */
+.contact-content .contact-form-link,
+.contact-content .contact-form-link:visited,
+.contact-content .contact-form-link:hover {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.contact-content .contact-form-link:hover {
+  background: var(--blue-dark);
+}
+
+.contact-alternative a {
+  overflow-wrap: anywhere;
+  font-weight: 700;
+}
+
+.spam-note {
+  margin-top: 20px !important;
+  color: var(--text-soft);
+  font-family: var(--body-font);
+  font-size: 12px;
+  font-style: italic;
+}
+
+.site-footer {
+  padding: 34px 0 44px;
+  border-top: 1px solid var(--line-strong);
+  background: color-mix(in srgb, var(--blue) 3%, var(--page-bg));
+  color: var(--text-soft);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px 24px;
+  align-items: center;
+}
+
+.appearance-panel {
+  grid-column: 1 / -1;
+  order: 3;
+  padding-top: 20px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.appearance-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  color: var(--text-soft);
+  cursor: pointer;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.appearance-summary::-webkit-details-marker {
+  display: none;
+}
+
+.appearance-summary::after {
+  content: "+";
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.appearance-panel[open] .appearance-summary::after {
+  content: "–";
+}
+
+.appearance-summary:hover {
+  color: var(--blue);
+}
+
+.appearance-body {
+  padding-top: 16px;
+}
+
+.appearance-copy {
+  margin: 0 0 12px;
+  max-width: 62ch;
+  color: var(--text-soft);
+  font-size: 11.5px;
+}
+
+.appearance-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.appearance-field {
+  display: grid;
+  gap: 4px;
+  color: var(--text-soft);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.appearance-field select {
+  min-width: 168px;
+  height: 34px;
+  padding: 0 30px 0 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 5px;
+  background: var(--white);
+  color: var(--text);
+  font: 500 12px/1 var(--body-font);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.select-with-swatch {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select-with-swatch select {
+  padding-left: 30px;
+}
+
+.theme-swatch {
+  position: absolute;
+  left: 10px;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue) 0 50%, var(--accent) 50% 100%);
+  pointer-events: none;
+}
+
+.footer-identity {
+  order: 1;
+}
+
+.footer-inner p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.footer-inner .footer-name {
+  margin-bottom: 3px;
+  color: var(--ink);
+  font-family: var(--heading-font);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.footer-links {
+  display: flex;
+  order: 2;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+.footer-links a,
+.footer-links a:visited {
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color 140ms ease;
+}
+
+.footer-links a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+@media (max-width: 980px) {
+  .brand {
+    margin-right: 12px;
+  }
+
+  .brand::after {
+    display: none;
+  }
+
+  .main-nav a {
+    padding-inline: 8px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 720px) {
+  .header-inner {
+    position: relative;
+    flex-wrap: wrap;
+    padding: 12px 20px 0;
+  }
+
+  .brand {
+    margin-right: auto;
+  }
+
+  .brand::after {
+    display: block;
+  }
+
+  .header-cta {
+    margin-left: 0;
+  }
+
+  /* The caption is redundant once the header wraps — the select still reads as
+     a theme control, and dropping it keeps brand + menu + CV on one line. */
+  .header-theme-label {
+    display: none;
+  }
+
+  .header-theme {
+    margin-left: 0;
+    margin-right: 8px;
+  }
+
+  .main-nav {
+    width: 100%;
+    flex-basis: 100%;
+    padding: 8px 0;
+    margin-inline: -4px;
+  }
+
+  .section-shell {
+    padding-inline: 20px;
+  }
+
+  .page-intro {
+    padding-top: 38px;
+  }
+
+  .page-intro h1 {
+    font-size: 28px;
+  }
+
+  .legacy-home .legacy-shell {
+    padding-top: 40px;
+  }
+
+  .home-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    text-align: center;
+  }
+
+  .legacy-content img.home-portrait {
+    width: 150px;
+    height: 150px;
+    margin-inline: auto;
+  }
+
+  .home-identity h1 {
+    font-size: 30px;
+  }
+
+  .home-topics {
+    justify-content: center;
+  }
+
+  .panel-phd .row,
+  .publications-content .pub .row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .panel-phd .column-news-left {
+    padding-top: 0;
+  }
+
+  .contact-content-source {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .appearance-controls,
+  .appearance-field,
+  .appearance-field select,
+  .select-with-swatch {
+    width: 100%;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
